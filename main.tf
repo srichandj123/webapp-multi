@@ -1,7 +1,11 @@
 #Resource Group Module
 module "rg" {
   source   = "./modules/resource-group"
+<<<<<<< HEAD
   rg_name  = "acme-ecommerce-webapi-rg01"
+=======
+  rg_name  = "sri-webapp-sqldb-rg01"
+>>>>>>> 11efb84b70ec798ee65148d102a2108701bab7c3
   location = "Canada Central"
   tags = {
     Application = "E-Commerce Web Api"
