@@ -30,7 +30,6 @@ module "fe-webapp" {
 
 }
 
-
 resource "azurerm_app_service_virtual_network_swift_connection" "vnetintegrationconnection" {
   app_service_id = module.fe-webapp.app_service_id
   subnet_id      = azurerm_subnet.front-integrationsubnet.id
