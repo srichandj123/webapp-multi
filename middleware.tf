@@ -12,7 +12,7 @@ module "mid-webapp" {
   webapp_name   = "acme-mid-webapi"
   location      = module.rg.location
   rg_name       = module.rg.rg_name
-  svc_plan_id   = module.mid-webapsvcplan.id
+  svc_plan_id   = module.mid-webapsvcplan.appsvc_plan_id
   public_access = false
 
 }
