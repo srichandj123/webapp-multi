@@ -9,7 +9,7 @@ module "rg" {
   }
 }
 
-module "vnet" {
+module "prodvnet" {
   source        = "./modules/vnet"
   vnet_name     = "prod-vnet01"
   location      = module.rg.location
@@ -27,6 +27,6 @@ module "subnet" {
     }
   ]
   rg_name   = module.rg.rg_name
-  vnet_name = module.vnet.vnet_name
+  vnet_name = module.prodvnet.vnet_name
 
 }
