@@ -26,5 +26,7 @@ module "subnet" {
       address_prefixes = ["10.0.1.0/24"]
     }
   ]
+  rg_name   = module.rg.rg_name
+  vnet_name = module.vnet.vnet_name
 
 }
