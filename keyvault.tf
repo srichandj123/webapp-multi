@@ -5,7 +5,7 @@ resource "azurerm_key_vault" "kv" {
   location                    = module.rg.location
   resource_group_name         = module.rg.rg_name
   enabled_for_disk_encryption = true
-  tenant_id                   = azurerm_user_assigned_identity.admin.tenant_id
+  tenant_id                   = azurerm_user_assigned_identity.sql-admin.tenant_id
   soft_delete_retention_days  = 7
   purge_protection_enabled    = true
 
@@ -19,12 +19,13 @@ resource "azurerm_key_vault" "kv" {
   }
 
   access_policy {
-    tenant_id = azurerm_user_assigned_identity.example.tenant_id
-    object_id = azurerm_user_assigned_identity.example.principal_id
+    tenant_id = azurerm_user_assigned_identity.sql-admin.tenant_id
+    object_id = azurerm_user_assigned_identity.sql-admin.principal_id
 
     key_permissions = ["Get", "WrapKey", "UnwrapKey"]
   }
 }
+data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault_key" "sqlkey" {
   depends_on   = [azurerm_key_vault.kv]
