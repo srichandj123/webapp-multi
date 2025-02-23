@@ -1,7 +1,7 @@
 
 
 resource "azurerm_mssql_server" "mssql" {
-  name                         = "prod-sqlserver"
+  name                         = "acme-prod-sqlserver"
   resource_group_name          = module.rg.rg_name
   location                     = module.rg.location
   version                      = "12.0"
@@ -10,7 +10,7 @@ resource "azurerm_mssql_server" "mssql" {
 }
 
 resource "azurerm_mssql_database" "mssqldb" {
-  name           = "prod-db"
+  name           = "webapi-prod-db"
   server_id      = azurerm_mssql_server.mssql.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
