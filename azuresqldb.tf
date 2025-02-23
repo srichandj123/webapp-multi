@@ -10,14 +10,12 @@ resource "azurerm_mssql_server" "mssql" {
 }
 
 resource "azurerm_mssql_database" "mssqldb" {
-  name           = "webapi-prod-db"
-  server_id      = azurerm_mssql_server.mssql.id
-  collation      = "SQL_Latin1_General_CP1_CI_AS"
-  license_type   = "LicenseIncluded"
-  read_scale     = true
-  sku_name       = "S0"
-  zone_redundant = true
-  tags           = module.rg.tags
+  name         = "webapi-prod-db"
+  server_id    = azurerm_mssql_server.mssql.id
+  collation    = "SQL_Latin1_General_CP1_CI_AS"
+  license_type = "LicenseIncluded"
+  sku_name     = "S0"
+  tags         = module.rg.tags
   identity {
     type         = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.admin.id]
