@@ -1,10 +1,4 @@
 
-resource "azurerm_user_assigned_identity" "admin" {
-  name                = "sql-admin"
-  location            = module.rg.location
-  resource_group_name = module.rg.rg_name
-}
-
 resource "azurerm_mssql_server" "mssql" {
   name                         = "prod-sqlserver"
   resource_group_name          = module.rg.rg_name

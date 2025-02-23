@@ -34,3 +34,10 @@ module "subnet" {
   vnet_name = module.prodvnet.vnet_name
 
 }
+
+
+resource "azurerm_user_assigned_identity" "admin" {
+  name                = "sql-admin"
+  location            = module.rg.location
+  resource_group_name = module.rg.rg_name
+}
