@@ -18,7 +18,7 @@ resource "azurerm_private_endpoint" "sql" {
 
   private_service_connection {
     name                           = "sql-privateserviceconnection"
-    private_connection_resource_id = azurerm_sql_server.mssql.id
+    private_connection_resource_id = azurerm_mssql_server.mssql.id
     subresource_names              = ["sqlServer"]
     is_manual_connection           = false
   }
