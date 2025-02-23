@@ -19,7 +19,7 @@ variable "rg_name" {
 #Address Space
 variable "address_space" {
   type    = list(string)
-  default = ""
+  default = [""]
 }
 
 #Tags
