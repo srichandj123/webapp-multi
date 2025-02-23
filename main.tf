@@ -22,8 +22,12 @@ module "subnet" {
   source = "./modules/subnet"
   subnets = [
     {
-      snet_name        = "middle"
+      snet_name        = "middleware-subnet"
       address_prefixes = ["10.0.1.0/24"]
+    },
+    {
+      snet_name        = "data-subnet"
+      address_prefixes = ["10.0.2.0/24"]
     }
   ]
   rg_name   = module.rg.rg_name
