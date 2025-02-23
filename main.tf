@@ -18,22 +18,22 @@ module "prodvnet" {
   tags          = module.rg.tags
 }
 
-module "subnet" {
-  source = "./modules/subnet"
-  subnets = [
-    {
-      snet_name        = "middleware-subnet"
-      address_prefixes = ["10.0.1.0/24"]
-    },
-    {
-      snet_name        = "data-subnet"
-      address_prefixes = ["10.0.2.0/24"]
-    }
-  ]
-  rg_name   = module.rg.rg_name
-  vnet_name = module.prodvnet.vnet_name
+# module "subnet" {
+#   source = "./modules/subnet"
+#   subnets = [
+#     {
+#       snet_name        = "middleware-subnet"
+#       address_prefixes = ["10.0.2.0/24"]
+#     },
+#     {
+#       snet_name        = "data-subnet"
+#       address_prefixes = ["10.0.3.0/24"]
+#     }
+#   ]
+#   rg_name   = module.rg.rg_name
+#   vnet_name = module.prodvnet.vnet_name
 
-}
+# }
 
 
 resource "azurerm_user_assigned_identity" "admin" {

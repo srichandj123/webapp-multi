@@ -1,5 +1,5 @@
 #name of the svc plan
-variable "name" {
+variable "apsvc_name" {
   type    = string
   default = ""
 }
@@ -17,19 +17,14 @@ variable "rg_name" {
 }
 
 #OS Type
-# variable "os_type {
-#   type    = string
-#   default = "Windows"
-# }
+variable "os_type" {
+  type    = string
+  default = "Windows"
+}
 
-variable "maximum_elastic_worker_count" {
-  
-}
-variable "maximum_elastic_worker_count" {
-  
-}
-#Tags
-variable "tags" {
-  type    = map(any)
-  default = {}
+#SKU Name
+variable "sku_name" {
+  type    = string
+  default = ""
+
 }
