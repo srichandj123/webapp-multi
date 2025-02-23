@@ -17,7 +17,7 @@ module "fe-webapsvcplan" {
   rg_name    = module.rg.rg_name
   location   = module.rg.location
   os_type    = "Windows"
-  sku_name   = "P1v2"
+  sku_name   = "P1v3"
 }
 
 
