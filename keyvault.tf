@@ -1,7 +1,7 @@
 
 # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
 resource "azurerm_key_vault" "kv" {
-  name                        = "prodkv01"
+  name                        = "acme-prodkv01"
   location                    = module.rg.location
   resource_group_name         = module.rg.rg_name
   enabled_for_disk_encryption = true
