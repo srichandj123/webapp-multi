@@ -1,3 +1,8 @@
+data "azurerm_network_interface" "pe_nic" {
+  name                = azurerm_private_endpoint.privateendpoint.network_interface[0].name
+  resource_group_name = module.rg.rg_name
+}
+
 resource "azurerm_network_security_group" "sql_nsg" {
   name                = "sql-nsg"
   location            = module.rg.location
@@ -11,7 +16,7 @@ resource "azurerm_network_security_group" "sql_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "1433"
-    source_address_prefix      = azurerm_private_endpoint.privateendpoint.private_ip_address
+    source_address_prefix      = data.azurerm_network_interface.pe_nic.private_ip_address.value
     destination_address_prefix = "*"
   }
 
