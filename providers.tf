@@ -1,15 +1,15 @@
 terraform {
-  required_version = "~> 1.7"
+  required_version = "~> 1.9"
   cloud {
     organization = "jakka"
     workspaces {
-      name = ""
+      name = "webapp-multi"
     }
   }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.105"
+      version = "~> 4.0.0"
     }
   }
 }
