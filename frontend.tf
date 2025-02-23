@@ -20,6 +20,16 @@ module "fe-webapsvcplan" {
   sku_name   = "P0v3"
 }
 
+module "fe-webapp" {
+  source        = "./modules/windows-webap"
+  webapp_name   = "fe-webapi"
+  location      = module.rg.location
+  rg_name       = module.rg.rg_name
+  svc_plan_id   = module.fe-webapsvcplan.appsvc_plan_id
+  public_access = true
+
+}
+
 # resource "azurerm_windows_web_app" "frontwebapp" {
 #   name                = "acme-corp-fe-webapi"
 #   location            = module.rg.location
@@ -33,7 +43,7 @@ module "fe-webapsvcplan" {
 #   }
 # }
 
-# resource "azurerm_app_service_virtual_network_swift_connection" "vnetintegrationconnection" {
-#   app_service_id = module.fe-webapsvcplan.appsvc_plan_id
-#   subnet_id      = azurerm_subnet.front-integrationsubnet.id
-# }
+resource "azurerm_app_service_virtual_network_swift_connection" "vnetintegrationconnection" {
+  app_service_id = module.fe-webapp.app_service_id
+  subnet_id      = azurerm_subnet.front-integrationsubnet.id
+}
