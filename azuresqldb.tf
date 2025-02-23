@@ -14,9 +14,9 @@ resource "azurerm_mssql_database" "mssqldb" {
   server_id      = azurerm_mssql_server.mssql.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
-  max_size_gb    = 100
+  max_size_gb    = 15
   read_scale     = true
-  sku_name       = "P2"
+  sku_name       = "S0"
   zone_redundant = true
   tags           = module.rg.tags
   identity {
