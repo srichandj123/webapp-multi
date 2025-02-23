@@ -1,7 +1,7 @@
 resource "azurerm_subnet" "front-integrationsubnet" {
   name                 = "integrationsubnet"
   resource_group_name  = module.rg.rg_name
-  virtual_network_name = module.vnet.vnet_name
+  virtual_network_name = module.prodvnet.vnet_name
   address_prefixes     = ["10.0.1.0/24"]
   delegation {
     name = "delegation"
@@ -24,8 +24,8 @@ module "fe-webapsvcplan" {
 resource "azurerm_windows_web_app" "frontwebapp" {
   name                = "acme-corp-fe-webapi"
   location            = module.rg.location
-  resource_group_name = amodule.rg.rg_name
-  service_plan_id     = azurerm_service_plan.appserviceplan.id
+  resource_group_name = module.rg.rg_name
+  service_plan_id     = module.fe-webapsvcplan.appsvc_plan_id
 
   site_config {}
   app_settings = {
