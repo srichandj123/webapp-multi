@@ -1,11 +1,12 @@
 #Resource Group Module
 module "rg" {
   source   = "./modules/resource-group"
-  rg_name  = "sri-webapp-sqldb-rg01"
-  location = "South India"
+  rg_name  = "acme-ecommerce-webapi-rg01"
+  location = "Canada Central"
   tags = {
-    Application = "3 Tier App"
-    Owner       = "Srichand"
+    Application = "E-Commerce Web Api"
+    Owner       = "Acme Corp"
+    GL          = "9999"
   }
 }
 
@@ -36,8 +37,8 @@ module "prodvnet" {
 # }
 
 
-resource "azurerm_user_assigned_identity" "admin" {
-  name                = "sql-admin"
-  location            = module.rg.location
-  resource_group_name = module.rg.rg_name
-}
+# resource "azurerm_user_assigned_identity" "admin" {
+#   name                = "sql-admin"
+#   location            = module.rg.location
+#   resource_group_name = module.rg.rg_name
+# }
