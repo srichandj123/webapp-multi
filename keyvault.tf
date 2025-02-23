@@ -22,7 +22,7 @@ resource "azurerm_key_vault" "kv" {
     tenant_id = azurerm_user_assigned_identity.admin.tenant_id
     object_id = azurerm_user_assigned_identity.admin.principal_id
 
-    key_permissions = ["Get", "WrapKey", "UnwrapKey"]
+    key_permissions = ["Get", "List", "Create", "WrapKey", "UnwrapKey"]
   }
 }
 data "azurerm_client_config" "current" {}
@@ -34,4 +34,14 @@ resource "azurerm_key_vault_key" "sqlkey" {
   key_type     = "RSA"
   key_size     = 2048
   key_opts     = ["unwrapKey", "wrapKey"]
+}
+
+data "azurerm_key_vault_secret" "uname" {
+  name         = "sql-admin"
+  key_vault_id = data.azurerm_key_vault.existing.id
+}
+
+data "azurerm_key_vault_secret" "pass" {
+  name         = "sql-pass"
+  key_vault_id = data.azurerm_key_vault.existing.id
 }
