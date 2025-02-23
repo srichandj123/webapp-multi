@@ -1,16 +1,16 @@
-resource "azurerm_private_dns_zone" "dnsprivatezone" {
+resource "azurerm_private_dns_zone" "dnsprivatezonesql" {
   name                = "privatelink.database.windows.net"
   resource_group_name = module.rg.rg_name
 }
 
-resource "azurerm_private_dns_zone_virtual_network_link" "dnszonelink" {
-  name                  = "dnszonelink-sql"
+resource "azurerm_private_dns_zone_virtual_network_link" "dnszonelinksql" {
+  name                  = "dnszonelinksql"
   resource_group_name   = module.rg.rg_name
-  private_dns_zone_name = azurerm_private_dns_zone.dnsprivatezone.name
+  private_dns_zone_name = azurerm_private_dns_zone.dnsprivatezonesql.name
   virtual_network_id    = module.prodvnet.vnet_id
 }
 
-resource "azurerm_private_endpoint" "privateendpoint" {
+resource "azurerm_private_endpoint" "sqlprivateendpoint" {
   name                = "sqldb-privateendpoint"
   location            = module.rg.location
   resource_group_name = module.rg.rg_name
@@ -18,7 +18,7 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 
   private_dns_zone_group {
     name                 = "privatednszonegroup"
-    private_dns_zone_ids = [azurerm_private_dns_zone.dnsprivatezone.id]
+    private_dns_zone_ids = [azurerm_private_dns_zone.dnsprivatezonesql.id]
   }
 
   private_service_connection {
