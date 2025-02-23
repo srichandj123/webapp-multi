@@ -38,10 +38,10 @@ resource "azurerm_key_vault_key" "sqlkey" {
 
 data "azurerm_key_vault_secret" "uname" {
   name         = "sql-admin"
-  key_vault_id = data.azurerm_key_vault.existing.id
+  key_vault_id = azurerm_key_vault.kv.id
 }
 
 data "azurerm_key_vault_secret" "pass" {
   name         = "sql-pass"
-  key_vault_id = data.azurerm_key_vault.existing.id
+  key_vault_id = azurerm_key_vault.kv.id
 }
