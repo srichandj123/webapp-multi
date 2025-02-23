@@ -12,19 +12,15 @@ variable "location" {
 
 #resourcegroup name
 variable "rg_name" {
-  type    = string
-  default = ""
+  type = string
 }
 
 #OS Type
 variable "os_type" {
-  type    = string
-  default = "Windows"
+  type = string
 }
 
 #SKU Name
 variable "sku_name" {
-  type    = string
-  default = ""
-
+  type = string
 }

@@ -14,9 +14,10 @@ resource "azurerm_subnet" "front-integrationsubnet" {
 module "fe-webapsvcplan" {
   source     = "./modules/app-svc-plan"
   apsvc_name = "fe-webapi-svc-plan"
+  rg_name    = module.rg.rg_name
   location   = module.rg.location
   os_type    = "Windows"
-  sku_name   = "P1V2"
+  sku_name   = "P1v2"
 }
 
 
