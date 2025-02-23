@@ -29,8 +29,8 @@ resource "azurerm_windows_web_app" "frontwebapp" {
 
   site_config {}
   app_settings = {
-    "WEBSITE_DNS_SERVER" : "168.63.129.16",
-    "WEBSITE_VNET_ROUTE_ALL" : "1"
+    # "WEBSITE_DNS_SERVER" : "168.63.129.16",
+    # "WEBSITE_VNET_ROUTE_ALL" : "1"
   }
 }
 
