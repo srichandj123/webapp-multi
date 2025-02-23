@@ -2,7 +2,7 @@
 module "rg" {
   source   = "./modules/resource-group"
   rg_name  = "sri-webapp-sqldb-rg01"
-  location = "South India"
+  location = "Canada Central"
   tags = {
     Application = "3 Tier App"
     Owner       = "Srichand"
