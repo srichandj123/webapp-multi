@@ -17,7 +17,7 @@ resource "azurerm_private_endpoint" "sqlprivateendpoint" {
   subnet_id           = module.subnet.snet_id[1]
 
   private_dns_zone_group {
-    name                 = "privatednszonegroup"
+    name                 = "sqlprivatednszonegroup"
     private_dns_zone_ids = [azurerm_private_dns_zone.dnsprivatezonesql.id]
   }
 
@@ -28,3 +28,4 @@ resource "azurerm_private_endpoint" "sqlprivateendpoint" {
     is_manual_connection           = false
   }
 }
+
