@@ -7,7 +7,7 @@ output "private_ip_address" {
 
 }
 
-#NSG rule to allow traffic only from Middleware WEB API private endpoint
+#NSG rule to allow traffic only from Middleware WEB API private endpoint and deny from other IP address
 resource "azurerm_network_security_group" "sql_nsg" {
   name                = "sql-nsg"
   location            = module.rg.location

@@ -1,3 +1,4 @@
+#Azure SQL DB Private End point configuration
 resource "azurerm_private_dns_zone" "dnsprivatezonesql" {
   name                = "privatelink.database.windows.net"
   resource_group_name = module.rg.rg_name

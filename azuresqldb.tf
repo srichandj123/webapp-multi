@@ -1,5 +1,4 @@
-
-
+#Azure SQL Server
 resource "azurerm_mssql_server" "mssql" {
   name                         = var.mssql_name
   resource_group_name          = module.rg.rg_name
@@ -9,6 +8,7 @@ resource "azurerm_mssql_server" "mssql" {
   administrator_login_password = data.azurerm_key_vault_secret.pass.value
 }
 
+#Azure SQL DB
 resource "azurerm_mssql_database" "mssqldb" {
   name         = var.mssql_db
   server_id    = azurerm_mssql_server.mssql.id

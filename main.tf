@@ -10,6 +10,7 @@ module "rg" {
   }
 }
 
+#VNET Module
 module "prodvnet" {
   source        = "./modules/vnet"
   vnet_name     = var.vnet_name
@@ -19,6 +20,7 @@ module "prodvnet" {
   tags          = module.rg.tags
 }
 
+#Subnet Module
 module "subnet" {
   source = "./modules/subnet"
   subnets = [
@@ -36,7 +38,7 @@ module "subnet" {
 
 }
 
-
+#User assigned managed identity -KV
 resource "azurerm_user_assigned_identity" "admin" {
   name                = "sql-admin"
   location            = module.rg.location

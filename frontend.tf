@@ -11,6 +11,7 @@ resource "azurerm_subnet" "front-integrationsubnet" {
   }
 }
 
+#Front-End App SVC plan
 module "fe-webapsvcplan" {
   source     = "./modules/app-svc-plan"
   apsvc_name = var.fe_apsvc_plan
@@ -20,6 +21,7 @@ module "fe-webapsvcplan" {
   sku_name   = "P0v3"
 }
 
+#Front-End WebApp
 module "fe-webapp" {
   source        = "./modules/windows-webap"
   webapp_name   = var.fe_webapi_name
