@@ -13,7 +13,7 @@ resource "azurerm_subnet" "front-integrationsubnet" {
 
 module "fe-webapsvcplan" {
   source     = "./modules/app-svc-plan"
-  apsvc_name = "fe-webapi-svc-plan"
+  apsvc_name = var.fe_apsvc_plan
   rg_name    = module.rg.rg_name
   location   = module.rg.location
   os_type    = "Windows"
@@ -22,7 +22,7 @@ module "fe-webapsvcplan" {
 
 module "fe-webapp" {
   source        = "./modules/windows-webap"
-  webapp_name   = "acme-fe-webapi"
+  webapp_name   = var.fe_webapi_name
   location      = module.rg.location
   rg_name       = module.rg.rg_name
   svc_plan_id   = module.fe-webapsvcplan.appsvc_plan_id

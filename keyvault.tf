@@ -38,6 +38,8 @@ resource "azurerm_key_vault_key" "sqlkey" {
   key_opts     = ["unwrapKey", "wrapKey"]
 }
 
+#SQL DB Admins Secrets
+#Either store as a secret variables in the pipeline or create them as a secrets in Azure KV using azure cli. For this demo, created the secrets using azure cli
 data "azurerm_key_vault_secret" "uname" {
   name         = "sql-admin"
   key_vault_id = azurerm_key_vault.kv.id

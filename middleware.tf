@@ -1,6 +1,6 @@
 module "mid-webapsvcplan" {
   source     = "./modules/app-svc-plan"
-  apsvc_name = "middle-webapi-svc-plan"
+  apsvc_name = mid_apsvc_plan
   rg_name    = module.rg.rg_name
   location   = module.rg.location
   os_type    = "Windows"
@@ -9,7 +9,7 @@ module "mid-webapsvcplan" {
 
 module "mid-webapp" {
   source        = "./modules/windows-webap"
-  webapp_name   = "acme-mid-webapi"
+  webapp_name   = mid_webapi_name
   location      = module.rg.location
   rg_name       = module.rg.rg_name
   svc_plan_id   = module.mid-webapsvcplan.appsvc_plan_id

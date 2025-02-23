@@ -12,7 +12,7 @@ module "rg" {
 
 module "prodvnet" {
   source        = "./modules/vnet"
-  vnet_name     = "prod-vnet01"
+  vnet_name     = var.vnet_name
   location      = module.rg.location
   rg_name       = module.rg.rg_name
   address_space = ["10.0.0.0/16"]
