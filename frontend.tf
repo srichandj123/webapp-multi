@@ -22,7 +22,7 @@ module "fe-webapsvcplan" {
 
 module "fe-webapp" {
   source        = "./modules/windows-webap"
-  webapp_name   = "fe-webapi"
+  webapp_name   = "acme-fe-webapi"
   location      = module.rg.location
   rg_name       = module.rg.rg_name
   svc_plan_id   = module.fe-webapsvcplan.appsvc_plan_id
