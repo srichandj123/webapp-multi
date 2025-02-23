@@ -36,5 +36,5 @@ resource "azurerm_windows_web_app" "frontwebapp" {
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnetintegrationconnection" {
   app_service_id = azurerm_windows_web_app.frontwebapp.id
-  subnet_id      = azurerm_subnet.integrationsubnet.id
+  subnet_id      = azurerm_subnet.ifront-integrationsubnet.id
 }
