@@ -16,8 +16,6 @@ variable "subnets" {
       {
         snet_name        = string,       # Name of the subnet
         address_prefixes = list(string), # Subnet Address Prefixes
-        #service_endpoints                 = list(string), # Subnet Service Endpoints(Optional)
-        # private_endpoint_network_policies = string # enforce_private_link_endpoint_network_policies (Optional. Default false)
       }
     )
   )

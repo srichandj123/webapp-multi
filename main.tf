@@ -1,8 +1,8 @@
 #Resource Group Module
 module "rg" {
   source   = "./modules/resource-group"
-  rg_name  = "acme-ecommerce-webapi-rg01"
-  location = "Canada Central"
+  rg_name  = var.rg_name
+  location = var.location
   tags = {
     Application = "E-Commerce Web Api"
     Owner       = "Acme Corp"

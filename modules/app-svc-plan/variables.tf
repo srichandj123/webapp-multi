@@ -4,7 +4,7 @@ variable "apsvc_name" {
   default = ""
 }
 
-#location of the svc plan
+#Location of the svc plan
 variable "location" {
   type    = string
   default = ""
